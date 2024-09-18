@@ -18,10 +18,8 @@ public class LunchData {
         scanner = scan;
     }
 
-    private int randomPosition(String lunchType){
-        Random random = new Random();
+    private int randomPosition(String lunchType, Random random){
         return random.nextInt(pullOfDishes.food.get(lunchType).size());
-
     }
 
     private void createLunch (String lunchName, String dish){
@@ -36,7 +34,8 @@ public class LunchData {
     }
 
     public void lunchConstructor() {
-
+        int flag = 0;
+        Random random = new Random();
         ArrayList<String> types = new ArrayList<>();
         System.out.println("Какие типы блюд должны входить?");
         System.out.println("Чтобы закончить ввод блюд введите 'готово'");
@@ -53,15 +52,15 @@ public class LunchData {
         }while (!dishType.equals("готово"));
 
         HashMap<Integer, ArrayList<String>> combinations = new HashMap<>();
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3 + random.nextInt(8); i++){
             ArrayList<String> varDish = new ArrayList<>();
             combinations.put(i + 1, varDish);
         }
 
         for (String type : types){
-            combinations.get(1).add(pullOfDishes.food.get(type).get(randomPosition(type)));
-            combinations.get(2).add(pullOfDishes.food.get(type).get(randomPosition(type)));
-            combinations.get(3).add(pullOfDishes.food.get(type).get(randomPosition(type)));
+            for(int i = 0; i < combinations.size(); i++){
+                combinations.get(i + 1).add(pullOfDishes.food.get(type).get(randomPosition(type, random)));
+            }
         }
 
 
