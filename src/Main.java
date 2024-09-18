@@ -7,33 +7,39 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         LunchData lunchManager = new LunchData(scanner);
+        String dishType;
 
         while (true){
             getMenu();
 
             System.out.print("--> ");
             int command = scanner.nextInt();
-            System.out.println();
+            System.out.println("\n");
 
             switch (command) {
                 case 1:
                     System.out.println("Введите тип блюда:");
-                    String dishType = scanner.next();
+                    dishType = scanner.next();
                     System.out.println("Введите название блюда:");
                     String dishName = scanner.next();
                     lunchManager.createNewDish(dishType,dishName);
                     break;
 
                 case 2:
-
+                    System.out.println("Введите тип блюда:");
+                    dishType = scanner.next();
+                    lunchManager.printDishForLunch(dishType);
                     break;
 
-
                 case 3:
-
+                    lunchManager.printLunches();
                     break;
 
                 case 4:
+                    lunchManager.lunchConstructor();
+                    break;
+
+                case 5:
                     System.out.println("До новых встреч!");
                     return;
 
@@ -47,6 +53,7 @@ public class Main {
         System.out.println("1. Ввести новое блюдо");
         System.out.println("2. Посмотреть список блюд");
         System.out.println("3. Посмотреть меню ланчей");
-        System.out.println("4. Выйти из приложения");
+        System.out.println("4. Создать ланч");
+        System.out.println("5. Выйти из приложения");
     }
 }
