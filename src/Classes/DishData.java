@@ -5,13 +5,11 @@ import java.util.HashMap;
 
 public class DishData {
     HashMap<String, ArrayList<String>> food;
-    DishData(){
+    protected DishData(){
         food = new HashMap<>();
     }
 
     protected void createDish(String dishType, String dishName){
-        //scanner = scan;
-        //String dishType = scanner.next();
         if(food.containsKey(dishType)){
             System.out.println("Добавили новое блюдо к существующему типу");
             food.get(dishType).add(dishName);
