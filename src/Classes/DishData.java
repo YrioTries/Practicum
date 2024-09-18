@@ -10,10 +10,10 @@ public class DishData {
     }
 
     protected void createDish(String dishType, String dishName){
-        if(food.containsKey(dishType)){
+        if (food.containsKey(dishType)){
             System.out.println("Добавили новое блюдо к существующему типу");
             food.get(dishType).add(dishName);
-        }else {
+        } else {
             ArrayList<String> dishes = new ArrayList<>();
             dishes.add(dishName);
             System.out.println("Добавили новое блюдо к новому типу");

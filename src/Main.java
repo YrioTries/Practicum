@@ -19,14 +19,17 @@ public class Main {
             switch (command) {
                 case 1:
                     System.out.println("Введите тип блюда:");
+                    System.out.print("--> ");
                     dishType = scanner.next();
                     System.out.println("Введите название блюда:");
+                    System.out.print("--> ");
                     String dishName = scanner.next();
                     lunchManager.createNewDish(dishType,dishName);
                     break;
 
                 case 2:
                     System.out.println("Введите тип блюда:");
+                    System.out.print("--> ");
                     dishType = scanner.next();
                     lunchManager.printDishForLunch(dishType);
                     break;

@@ -43,6 +43,7 @@ public class LunchData {
         String dishType;
 
         do{
+            System.out.print("--> ");
             dishType = scanner.next();
             if(pullOfDishes.food.containsKey(dishType)){
                 types.add(dishType);
@@ -73,7 +74,8 @@ public class LunchData {
                 System.out.println(dish);
             }
         }
-        System.out.println("Выберите один вариант ланча");
+        System.out.println("\nВыберите один вариант ланча");
+        System.out.print("--> ");
         int command = scanner.nextInt();
 
 
@@ -87,7 +89,7 @@ public class LunchData {
 
 
     public void createNewDish(String dishType,String dishName){
-        System.out.println("Блюдо " + dishType + " " + dishName + " добавлено!");
+        System.out.println("Блюдо " + dishName + " добавлено!");
         pullOfDishes.createDish(dishType, dishName);
     }
 
@@ -97,12 +99,12 @@ public class LunchData {
 
     public void printLunches(){
         int i = 0;
-        for(String name : lunch.keySet()){
+        for (String name : lunch.keySet()){
             System.out.println("\n================================================");
             System.out.println((++i) + ". " + name);
             System.out.println("================================================");
             System.out.println("Состоит из: ");
-            for(String dish : lunch.get(name)){
+            for (String dish : lunch.get(name)){
                 System.out.println(dish);
             }
         }
