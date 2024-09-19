@@ -33,7 +33,7 @@ public class Main {
                     dishType = scanner.next();
                     lunchManager.printDishForLunch(dishType);
                     break;
-
+                    
                 case 3:
                     lunchManager.printLunches();
                     break;
